@@ -1,80 +1,308 @@
-body, h1, h2, h3, p, ul, li {
+:root {
+    --primary-color: #ff4757;
+    --secondary-color: #1e90ff;
+    --accent-color: #2ed573;
+    --background-color: #f0f0f0;
+    --text-color: #2f3542;
+    --button-hover-color: #ff6b81;
+    --header-background: #2f3542;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px;
+    color: white;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
     margin: 0;
     padding: 0;
 }
 
-body{
-    font-family: Arial,sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-}
-
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
-}
-.header-content{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-header h1{
-    font-size: 32px;
-}
-nav{
-    background-color: #333;
-    color: #fff;
-    padding: 10px 0;
-    text-align: center;
-}
-
-nav ul{
-    display: inline;
+nav ul li {
     margin-right: 20px;
 }
 
 nav ul li a {
-    color:#fff;
+    color: white;
     text-decoration: none;
-    font-size: 18px;
 }
 
-nav ul  li a:hover{
-    text-decoration: underline
+
+#categorias-icon img {
+    width: 24px;
+    height: 24px;
 }
 
-nav ul li {
+.categorias {
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    background-color: white;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.categorias ul {
+    list-style: none;
+    padding: 0;
+}
+
+.categorias ul li {
+    margin: 10px 0;
+}
+
+.categorias ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.produtos, .carrinho {
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.produtos h2, .carrinho h2 {
+    text-align: center;
+    color: var(--primary-color);
+}
+
+.produto {
+    background-color: var(--accent-color);
+    border: 2px solid var(--secondary-color);
+    border-radius: 10px;
     display: inline-block;
-    margin-right: 20px;
-}
-nav ul li a{
-    color: #fff;
-    text-decoration: none;
-    font-size: 18px;
-    padding: 18px 20px;
-    transition: background-color 0.3s;
+    margin: 10px;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.2s, background-color 0.3s;
 }
 
-nav ul li a:hover{
-    background-color: #555;
+.produto:hover {
+    transform: scale(1.05);
+    background-color: var(--secondary-color);
 }
 
-nav ul li:nth-child(2) a {
-    background-color: #ff9800;
-}
-nav ul li:nth-child(2) a:hover {
-    background-color: #f57c00;
+.produto img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    transition: transform 0.3s;
 }
 
-main {
+.produto:hover img {
+    transform: rotate(10deg) scale(1.1);
+}
+
+.produto h3 {
+    margin: 10px 0;
+    color: white;
+}
+
+.produto p {
+    color: white;
+    font-weight: bold;
+}
+
+.produto button {
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    padding: 10px 20px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.produto button:hover {
+    background-color: var(--button-hover-color);
+    transform: scale(1.1);
+}
+.produto-detalhes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--background-color);
+    min-height: calc(100vh - 120px); /* Ajuste para considerar o header e o footer */
+}
+
+.produto-detalhes .produto {
+    background-color: white;
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 20px;
 }
-footer{
-    background-color: #333;
-    color: red;
-    padding: 20px 0;
+
+.produto-detalhes .produto img {
+    width: 80%;
+    max-width: 300px;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+.produto-detalhes .detalhes {
+    text-align: left;
+    width: 100%;
+    padding: 0 20px;
+}
+
+.produto-detalhes .detalhes h2 {
+    font-size: 24px;
+    color: var(--text-color);
+}
+
+.produto-detalhes .detalhes p {
+    font-size: 18px;
+    color: var(--text-color);
+}
+
+.produto-detalhes .detalhes ul {
+    list-style: none;
+    padding: 0;
+}
+
+.produto-detalhes .detalhes ul li {
+    font-size: 16px;
+    color: var(--text-color);
+    margin: 5px 0;
+}
+
+.produto-detalhes .detalhes label {
+    font-size: 16px;
+    color: var(--text-color);
+    margin: 10px 0;
+}
+
+.produto-detalhes .detalhes input[type="number"] {
+    width: 50px;
+    margin-left: 10px;
+    font-size: 16px;
+    padding: 5px;
+}
+
+.produto-detalhes .botoes {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.produto-detalhes .botoes button {
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    padding: 10px 20px;
+    transition: background-color 0.3s, transform 0.2s;
+    margin: 0 10px;
+}
+
+.produto-detalhes .botoes button:hover {
+    background-color: var(--button-hover-color);
+    transform: scale(1.1);
+}
+.carrinho {
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.carrinho h2 {
     text-align: center;
+    color: var(--primary-color);
+}
+
+.carrinho ul {
+    list-style: none;
+    padding: 0;
+}
+
+.carrinho ul li {
+    background-color: var(--accent-color);
+    border: 2px solid var(--secondary-color);
+    border-radius: 10px;
+    margin: 10px 0;
+    padding: 10px;
+    transition: background-color 0.3s, transform 0.2s;
+    color: white;
+}
+
+.carrinho ul li:hover {
+    background-color: var(--hover-background-color);
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+#carrinho-total {
+    font-size: 1.5em;
+    text-align: center;
+    margin: 20px 0;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    font-size: 1.2em;
+    color: white;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 10px;
+    transition: background-color 0.3s, transform 0.2s;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--button-hover-color);
+    transform: scale(1.05);
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: var(--header-background);
+    color: white;
+}
+#categorias-icon img {
+    width: 24px;
+    height: 24px;
+    filter: brightness(150%);
+    transition: filter 0.3s ease;
+}
+
+#categorias-icon:hover img {
+    filter: brightness(200%);
+}
+
+/* Adicione esses estilos para o contador de itens no carrinho */
+#cart-counter {
+    background-color: #ff4757;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 50%;
+    font-size: 12px;
+    margin-left: 5px;
 }
