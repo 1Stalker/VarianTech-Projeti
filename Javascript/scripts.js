@@ -120,6 +120,18 @@ function updateCartCounter() {
         cartCounter.textContent = getCartCount();
     }
 }
+document.addEventListener('DOMContentLoaded', function () {
+    const searchIcon = document.getElementById('search-icon');
+    const searchBar = document.getElementById('search-bar');
+
+    searchIcon.addEventListener('click', function () {
+        if (searchBar.style.display === 'none' || searchBar.style.display === '') {
+            searchBar.style.display = 'flex';
+        } else {
+            searchBar.style.display = 'none';
+        }
+    });
+});
 
 // Adiciona um item ao carrinho
 function addToCart() {

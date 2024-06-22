@@ -1,13 +1,12 @@
 :root {
     --primary-color: #ff4757;
-    --secondary-color: #1e90ff;
-    --accent-color: #2ed573;
+    --secondary-color: #e60000;
+    --accent-color:#c90047;
     --background-color: #f0f0f0;
-    --text-color: #2f3542;
+    --text-color: #5c5c5c;
     --button-hover-color: #ff6b81;
     --header-background: #2f3542;
 }
-
 body {
     font-family: Arial, sans-serif;
 }
@@ -16,10 +15,72 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #333;
-    padding: 10px;
-    color: white;
+    background-color:  #00004d;
+    padding: 60px;
+    color: #ffffff;
+    text-align: center;
+    position: relative;
 }
+.header-content{
+    display: flex;
+    justify-content: center;
+}
+.header-content h1{
+    flex-grow: 1;
+    margin: 0;
+    text-align: center;
+    font-size: 5rem;
+}
+.header-icons{
+    display: flex;
+    gap: 60px;
+    margin-right: 110px;
+    position:absolute;
+    left: 50px;
+    transform: translatY(-50%)
+}
+
+.header-icons img {
+    width: 24px;
+    height: 24px;
+    transition: filter 0.3s;
+}
+
+
+#search-icon img:hover,
+#categorias-icon img:hover,
+#cart-icon img:hover {
+    filter: brightness(0) invert(1) sepia(1) saturate(5) hue-rotate(180deg);
+}
+
+
+#search-icon img,
+#categorias-icon img,
+#cart-icon img {
+    filter: invert(36%) sepia(70%) saturate(4800%) hue-rotate(330deg) brightness(97%) contrast(100%);
+}
+.header-icons {
+    display: flex;
+    align-items: center;
+}
+
+.header-icons a {
+    margin-left: 20px;
+    position: relative;
+}
+
+.header-icons a img {
+    width: 24px;
+    height: 24px;
+    filter: brightness(150%);
+    transition: filter 0.3s ease;
+
+}
+
+.header-icons a:hover img {
+    filter: brightness(200%);
+}
+
 
 nav ul {
     list-style: none;
@@ -29,7 +90,7 @@ nav ul {
 }
 
 nav ul li {
-    margin-right: 20px;
+    margin-right: 10px;
 }
 
 nav ul li a {
@@ -37,20 +98,26 @@ nav ul li a {
     text-decoration: none;
 }
 
-
-#categorias-icon img {
-    width: 24px;
-    height: 24px;
+.dropdown {
+    position: relative; /* Permite a posição absoluta do menu */
 }
 
 .categorias {
-    display: none;
+    display: none; /* Esconde o menu inicialmente */
     position: absolute;
-    top: 50px;
+    top: 50px; /* Ajuste para alinhar o menu abaixo do ícone */
     left: 0;
     background-color: white;
     padding: 10px;
     border: 1px solid #ccc;
+    border-radius: 8px;
+    z-index: 1000;
+}
+
+.categorias h2 {
+    margin-top: 0;
+    font-size: 18px;
+    color: var(--text-color);
 }
 
 .categorias ul {
@@ -64,13 +131,29 @@ nav ul li a {
 
 .categorias ul li a {
     text-decoration: none;
-    color: #333;
+    color: var(--text-color);
+    display: block;
+}
+
+.dropdown:hover .categorias {
+    display: block; /* Mostra o menu ao passar o mouse */
+}
+
+.dropdown a#categorias-icon img {
+    width: 30px;
+    height: 30px;
+    filter: brightness(150%);
+    transition: filter 0.3s ease;
+}
+
+.dropdown a#categorias-icon:hover img {
+    filter: brightness(100%);
 }
 
 .produtos, .carrinho {
     margin: 20px;
     padding: 20px;
-    background-color: white;
+    background-color: #353942 ;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
@@ -91,6 +174,18 @@ nav ul li a {
     text-align: center;
     transition: transform 0.2s, background-color 0.3s;
 }
+
+.produto a {
+    text-decoration: none; /* Remove o sublinhado dos links */
+    color: inherit; /* Mantém a cor do texto conforme o estilo aplicado ao contêiner */
+}
+
+/* Adicionalmente, se quiser adicionar um efeito ao passar o mouse */
+.produto a:hover {
+    text-decoration: none; /* Garante que o sublinhado não apareça no hover */
+    color: inherit; /* Mantém a cor original no hover */
+}
+
 
 .produto:hover {
     transform: scale(1.05);
@@ -305,4 +400,35 @@ footer {
     border-radius: 50%;
     font-size: 12px;
     margin-left: 5px;
+}
+
+.search-bar {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 40px; /* Ajuste conforme necessário */
+    transform: translateY(-50%);
+    background-color: white;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.search-bar button {
+    padding: 5px 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #555;
 }
