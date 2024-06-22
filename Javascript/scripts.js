@@ -141,6 +141,24 @@ function addToCart() {
     updateCartCounter(); // Atualiza o contador do carrinho
 }
 
+document.addEventListener('DOMContentLoaded', function () {
+    const categoriasIcon = document.getElementById('categorias-icon');
+    const categorias = document.getElementById('categorias');
+
+    categoriasIcon.addEventListener('click', function (event) {
+        event.preventDefault();
+        categorias.classList.toggle('show');
+    });
+
+    // Fecha o menu de categorias ao clicar fora dele
+    document.addEventListener('click', function (event) {
+        if (!categorias.contains(event.target) && !categoriasIcon.contains(event.target)) {
+            categorias.classList.remove('show');
+        }
+    });
+});
+
+
 // Chamada inicial para atualizar o contador do carrinho quando a página carrega
 updateCartCounter();
 

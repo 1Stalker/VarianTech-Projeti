@@ -114,6 +114,10 @@ nav ul li a {
     z-index: 1000;
 }
 
+.categorias.show {
+    display: block;
+}
+
 .categorias h2 {
     margin-top: 0;
     font-size: 18px;
