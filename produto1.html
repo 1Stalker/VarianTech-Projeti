@@ -1,49 +1,48 @@
 <!DOCTYPE html>
-<html lang="pt-br"> 
-
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Teclado Gamer Redragon - Loja VarianTech</title>
-        <link rel="stylesheet" href="CSS/styles.css">
-    </head>
-    <body>
-        <header>
-            <div class = "header-content">
-                <h1>Loja VarianTech</h1>
-                <nav>
-                    <ul>
-                        <li><a href = "index.html">Produtos</a></li>
-                        <li><a href = "#">Carrinho</a></li>
-                        <li><a href = "#" id = "categorias-icon"><img src = "icone-categorias.png" alt = "Categorias"></a></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
-        <section class = "produto-detalhes">
-            <div class = "produto">
-                <img src = "61M6S63ArvL.webp" alt = "Teclado Gamer Redragon">
-                <div class = "detalhes">
-                    <h2>Teclado Gamer Redragon</h2>
-                    <p>Preço: R$ 180,00</p>
-                    <P>Características:</P>
-                    <ul>
-                        <li>Teclado Mecânico</li>
-                        <li>Iluminação RGB</li>
-                        <li>Switches de alta qualidade</li>
-                    </ul>
-                    <label for = "quantidade">Quantidade:</label>
-                    <input type = "number" id = "quantidade" name = "quantidade" min = "1" value = "1">
-                    <div class = "botoes">
-                        <button onclick = "comprarAgora()">Comprar Agora</button>
-                        <button onclick="adicionarAoCarrinho('Teclado Gamer Redragon', 180.00)">Adicionar ao Carrinho</button>
-                    </div>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teclado Gamer Redragon - Loja VarianTech</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Loja VarianTech</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Produtos</a></li>
+                    <li><a href="carrinho.html"><img src="icone-carrinho.png" alt="Carrinho"></a></li>
+                    <li><a href="#" id="categorias-icon"><img src="icone-categorias.png" alt="Categorias"></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="produto-detalhes">
+        <div class="produto">
+            <img src="61M6S63ArvL.webp" alt="Teclado Gamer Redragon">
+            <div class="detalhes">
+                <h2>Teclado Gamer Redragon</h2>
+                <p>Preço: R$ 180,00</p>
+                <p>Características:</p>
+                <ul>
+                    <li>Teclado Mecânico</li>
+                    <li>Iluminação RGB</li>
+                    <li>Switches de alta qualidade</li>
+                </ul>
+                <label for="quantidade">Quantidade:</label>
+                <input type="number" id="quantidade" name="quantidade" min="1" value="1">
+                <div class="botoes">
+                    <button onclick="comprarAgora()">Comprar Agora</button>
+                    <button onclick="adicionarAoCarrinho('Teclado Gamer Redragon', 180.00)">Adicionar ao Carrinho</button>
                 </div>
             </div>
-        </section>
-        <footer>
-            <p>&copy;2024 Loja de Eletronicos. Todos os direitos reservados</p>
-        </footer>
-        <script src = "Javascript/scripts.js"></script>
-        </body>
-        </html>
+        </div>
+    </section>
+    <footer>
+        <p>&copy;2024 Loja VarianTech. Todos os direitos reservados.</p>
+    </footer>
+    <script src="Javascript/scripts.js"></script>
+</body>
+</html>
