@@ -1,0 +1,5 @@
+# Created at 2024-05-31T14:02:37.187
+Boot Manifest-JAR contains absolute paths in classpath 'D:\Sistema_De_Vendas_Online\Gestão-de-vendas-online\Sistema-Altomatização\VarianTech\target\test-classes'
+Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
+'other' has different root
+
