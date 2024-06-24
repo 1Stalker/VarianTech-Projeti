@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teclado Gamer Redragon - Loja VarianTech</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1><span class="varian">Varian</span><span class="tech">Tech</span> Store</h1>
+                <div class="header-icons">
+                    <nav>
+                        <ul>
+                            <li class="dropdown" id="dropdown">
+                            </li>
+                            <li><a href="carrinho.html" id="cart-icon"><img src="img/carrinho-de-compras.png" alt="Carrinho"></a></li>
+                            <li><a href="index.html" id="botao-home"><img src="img/botao-home.png" alt="Voltar-pagina-inicial"></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            
+    </header>
+    <section class="produto-detalhes">
+        <div class="produto">
+            <img src="img/HEADSETGAMER.webp" alt="headset">
+            <div class="detalhes">
+                <h2>HyperX Cloud Alpha S - Gaming Headset</h2>
+                <h3>Preço: R$ 645,00</h3>
+                <h4>
+                        <p>Características:</p>
+                        <ul>
+                        
+                            <li>Tipo de Fone: Over-ear (circumaural).</li>
+                            <li>Drivers: Dinâmicos, 50mm com ímãs de neodímio.</li>
+                            <li> Resposta de Frequência: 13Hz–27,000Hz4.</li>
+                            <li>Armazenamento: SSD NVMe de 500 GB </li>
+                            <li>Impedância: 65 Ω.</li>
+                            <li>Conexão: Conector 3.5mm (4 polos) + Adaptador para PC com conector duplo de 3.5mm</li>
+                            <li>Comprimento do Cabo: 1m (Cabo trançado) + Extensão de 2m</li>
+                            <li> Peso: 310g</li>
+                            <p>Garantia: 2 anos.</p>
+                        </ul>
+                </h4>
+                <h5>
+                    <label for="quantidade">Quantidade:</label>
+                    <input type="number" id="quantidade" name="quantidade" min="1" value="1">
+                    <div class="botoes">
+                        <button onclick="comprarAgora()">Comprar Agora</button>
+                        <button onclick="adicionarAoCarrinho('Teclado Gamer Redragon', 180.00)">Adicionar ao Carrinho</button>
+                    </div>
+                </h5>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>&copy;2024 Loja VarianTech. Todos os direitos reservados.</p>
+    </footer>
+    <script src="Javascript/scripts.js"></script>
+</body>
+</html>

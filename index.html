@@ -12,72 +12,88 @@
 <body>
     <header>
         <div class="header-content">
-            <h1><span class="varian">Varian</span><span class="tech">Tech</span> Store</h1>
-                <div class="header-icons">
-                    <a href="#" class="search-icon" id="search-icon"><img src="lupa.png" alt="Lupa"></a>
-                    <div id="search-bar" class="search-bar">
-                        <input type="text" placeholder="Pesquisar...">
-                        <button id="search-button">Pesquisar</button>
-                    </div>
-                    <nav>
-                        <ul>
-                            <li class="dropdown" id="dropdown">
-                                <a href="#" id="categorias-icon"><img src="lista.png" alt="Categorias"></a>
-                                <section class="categorias" id="categorias">
-                                    <h2>Categorias</h2>
-                                    <ul>
-                                        <li><a href="teclados.html">Teclados</a></li>
-                                        <li><a href="mouses.html">Mouses</a></li>
-                                        <li><a href="fones.html">Fones</a></li>
-                                        <li><a href="monitores.html">Monitores</a></li>
-                                        <li><a href="celulares.html">Celulares</a></li>
-                                    </ul>
-                                </section>
-                            </li>
-                            <li><a href="carrinho.html" id="cart-icon"><img src="carrinho-de-compras.png" alt="Carrinho"></a></li>
-                        </ul>
-                    </nav>
+                <!-- Ícone de Categoria -->
+                <a href="#" id="categorias-icon">
+                    <img src="img/lista.png" alt="Categorias">
+                </a>
+                <div id="categorias-menu" class="categorias-menu">
+                    <ul>
+                        <li><a href="teclados.html">Teclados</a></li>
+                        <li><a href="mouses.html">Mouses</a></li>
+                        <li><a href="fones.html">Fones de Ouvido</a></li>
+                    </ul>
                 </div>
+
+            <!-- Título da Loja -->
+            <h1 class="header-title">
+                <span class="varian">Varian</span><span class="tech">Tech</span> Store
+            </h1>
+
+            <!-- Outros Ícones (Pesquisa, Carrinho) -->
+            <div class="header-icons">
+                <a href="#" class="search-icon" id="search-icon">
+                    <img src="img/lupa.png" alt="Lupa">
+                </a>
+                <div id="search-bar" class="search-bar">
+                    <input type="text" placeholder="Pesquisar...">
+                    <button id="search-button">Pesquisar</button>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="carrinho.html" id="cart-icon">
+                                <img src="img/carrinho-de-compras.png" alt="Carrinho">
+                                
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
-            
+        </div>
     </header>
    <section id="produtos" class="produtos">
     <div class="produto">
         <a href="produto1.html">
-            <img src="61M6S63ArvL.webp" alt="Produto 1">
+            <img src="img/61M6S63ArvL.webp" alt="Produto 1">
             <h3>Teclado Gamer Redragon</h3>
             <p>R$ 180,00</p>
         </a>
     </div>
     <div class="produto">
         <a href="produto2.html">
-            <img src="Mouse logitech.webp" alt="Produto 2">
+            <img src="img/Mouse logitech.webp" alt="Produto 2">
             <h3>Mouse Logitech</h3>
-            <p>R$ 850,00</p>
+            <p>R$ 50,00</p>
         </a>
     </div>
     <div class="produto">
         <a href="produto3.html">
-            <img src="KItMouseETeclado.webp" alt="Produto 3">
+            <img src="img/KItMouseETeclado.webp" alt="Produto 3">
             <h3>Kit mouse e teclado</h3>
             <p>R$ 250,00</p>
         </a>
     </div>
     <div class="produto">
         <a href="produto4.html">
-            <img src="PC gamer amd Ryzen.webp" alt="Produto 4">
+            <img src="img/PC gamer amd Ryzen.webp" alt="Produto 4">
             <h3>PC Gamer AMD Ryzem 5 5600G</h3>
             <p>R$ 3.500,00</p>
         </a>
     </div>
     <div class="produto">
-        <a href="produto1.html">
-            <img src="headset.webp" alt="Produto 1">
-            <h3>SteelSeries Arctis 7 - Lossless Wireless Gaming Headset </h3>
-            <p>R$ 180,00</p>
+        <a href="produto5.html">
+            <img src="img/HEADSETGAMER.webp" alt="Produto 5">
+            <h3>HyperX Cloud Alpha S - Gaming Headset </h3>
+            <p>R$ 645,00</p>
         </a>
     </div>
-</section>
+    <div class="produto">
+        <a href="produto6.html">
+            <img src="img/iPhone_11_P_2._CB640461641_.webp" alt="Produto 6">
+            <h3>IPhone 11</h3>
+            <p>R$ 2.789,10</p>
+        </a>
+    </div>
+    </section>
    
    <footer>
        <p>&copy;2024 Loja de Eletronicos. Todos os direitos reservados.</p>

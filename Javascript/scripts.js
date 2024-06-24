@@ -1,5 +1,12 @@
-// Adiciona um produto ao carrinho
-function adicionarAoCarrinho(nome, preco) {
+// Produtos fictícios
+const products = [
+    { id: 1, name: 'Teclado Gamer Redragon', price: 180.00, image:'img/61M6S63ArvL.webp' },
+    { id: 2, name: 'Produto 2', price: 75.00, image: 'Gestão-de-vendas-online/Site-Vendas-Oline/VarianTech-Projeti/img/Mouse logitech.webp' },
+    { id: 3, name: 'Produto 3', price: 110.00, image: 'img/produto3.jpg' }
+];
+
+// Função para adicionar um produto ao carrinho
+function adicionarAoCarrinho(nome, preco, imagem) {
     const quantidade = parseInt(document.getElementById('quantidade').value);
 
     let carrinho = JSON.parse(localStorage.getItem('cart')) || [];
@@ -10,11 +17,12 @@ function adicionarAoCarrinho(nome, preco) {
     if (itemExistente) {
         itemExistente.quantidade += quantidade;
     } else {
-        carrinho.push({ nome, preco, quantidade });
+        carrinho.push({ nome, preco, quantidade, imagem });
     }
 
     localStorage.setItem('cart', JSON.stringify(carrinho));
     alert('Produto adicionado ao carrinho!');
+    atualizarCarrinho();
 }
 
 // Remove um produto do carrinho
@@ -38,14 +46,31 @@ function atualizarCarrinho() {
 
     carrinho.forEach(item => {
         const li = document.createElement('li');
-        li.textContent = `${item.nome} - R$ ${item.preco.toFixed(2).replace('.', ',')} x ${item.quantidade}`;
-        carrinhoLista.appendChild(li);
+
+        // Imagem do produto
+        const img = document.createElement('img');
+        img.src = item.imagem;
+        img.alt = item.nome;
+        img.classList.add('cart-item-image');
+        li.appendChild(img);
+
+        // Nome do produto
+        const nomeProduto = document.createElement('span');
+        nomeProduto.textContent = item.nome;
+        li.appendChild(nomeProduto);
+
+        // Preço e quantidade
+        const precoQuantidade = document.createElement('span');
+        precoQuantidade.textContent = ` - R$ ${item.preco.toFixed(2).replace('.', ',')} x ${item.quantidade}`;
+        li.appendChild(precoQuantidade);
 
         // Botão de remover
         const removerBtn = document.createElement('button');
         removerBtn.textContent = 'Remover';
         removerBtn.addEventListener('click', () => removerDoCarrinho(item.nome));
         li.appendChild(removerBtn);
+
+        carrinhoLista.appendChild(li);
 
         total += item.preco * item.quantidade;
     });
@@ -69,38 +94,71 @@ document.addEventListener('DOMContentLoaded', () => {
         finalizarCompraBtn.addEventListener('click', finalizarCompra);
     }
 });
-document.addEventListener("DOMContentLoaded", function() {
-    const categoriasIcon = document.getElementById("categorias-icon");
-    const categoriasSection = document.getElementById("categorias");
-    const dropdown = document.getElementById("dropdown");
 
-    categoriasIcon.addEventListener("click", function(event) {
-        event.preventDefault(); // Previne o comportamento padrão do link
-        categoriasSection.classList.toggle("visible");
-    });
+document.addEventListener('DOMContentLoaded', function() {
+    const searchIcon = document.getElementById('search-icon');
+    const searchBar = document.getElementById('search-bar');
+    const categoriasIcon = document.getElementById('categorias-icon');
+    const categoriasMenu = document.getElementById('categorias-menu');
+    let searchBarVisible = false;
+    let categoriasMenuVisible = false;
+    let categoriasMenuFixed = false;
 
-    // Fecha o menu se clicar fora dele
-    document.addEventListener("click", function(event) {
-        if (!dropdown.contains(event.target) && !categoriasSection.contains(event.target)) {
-            categoriasSection.classList.remove("visible");
+    // Controlar a barra de pesquisa
+    searchIcon.addEventListener('click', function(event) {
+        event.stopPropagation();
+        if (searchBarVisible) {
+            searchBar.style.display = 'none';
+            searchBarVisible = false;
+        } else {
+            searchBar.style.display = 'block';
+            searchBarVisible = true;
+            searchBar.querySelector('input').focus();
         }
     });
 
-    // Mantém a aba aberta enquanto o mouse estiver sobre a aba de categorias ou os itens
-    categoriasSection.addEventListener("mouseleave", function() {
-        setTimeout(() => {
-            if (!categoriasSection.matches(':hover')) {
-                categoriasSection.classList.remove("visible");
-            }
-        }, 100);
+    document.addEventListener('click', function(event) {
+        if (searchBarVisible && !searchBar.contains(event.target) && !searchIcon.contains(event.target)) {
+            searchBar.style.display = 'none';
+            searchBarVisible = false;
+        }
+        if (categoriasMenuVisible && !categoriasMenu.contains(event.target) && !categoriasIcon.contains(event.target) && !categoriasMenuFixed) {
+            categoriasMenu.style.display = 'none';
+            categoriasMenuVisible = false;
+        }
     });
 
-    categoriasSection.addEventListener("mouseenter", function() {
-        categoriasSection.classList.add("visible");
+    // Controlar o menu de categorias
+    categoriasIcon.addEventListener('mouseover', function() {
+        if (!categoriasMenuFixed) {
+            categoriasMenu.style.display = 'block';
+            categoriasMenuVisible = true;
+        }
     });
 
-    // Impede o clique na área da aba de categorias de fechar a aba
-    categoriasSection.addEventListener("click", function(event) {
+    categoriasIcon.addEventListener('click', function(event) {
         event.stopPropagation();
+        categoriasMenuFixed = !categoriasMenuFixed; // Alternar entre fixar e soltar o menu
+        if (categoriasMenuFixed) {
+            categoriasMenu.style.display = 'block';
+            categoriasMenuVisible = true;
+        } else {
+            categoriasMenu.style.display = 'none';
+            categoriasMenuVisible = false;
+        }
+    });
+
+    categoriasMenu.addEventListener('mouseover', function() {
+        if (!categoriasMenuFixed) {
+            categoriasMenu.style.display = 'block';
+            categoriasMenuVisible = true;
+        }
+    });
+
+    categoriasMenu.addEventListener('mouseleave', function() {
+        if (!categoriasMenuFixed) {
+            categoriasMenu.style.display = 'none';
+            categoriasMenuVisible = false;
+        }
     });
 });

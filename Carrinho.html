@@ -9,16 +9,20 @@
 <body>
     <header>
         <div class="header-content">
-            <h1>Loja VarianTech</h1>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Pagina Inicial</a></li>
-                </ul>
-            </nav>
-        </div>
+            <h1><span class="varian">Varian</span><span class="tech">Tech</span> Store</h1>
+                <div class="header-icons">
+                    <nav>
+                        <ul>
+                            <li class="dropdown" id="dropdown">
+                                <li><a href="index.html" id="botao-home"><img src="img/botao-home.png" alt="Voltar-pagina-inicial"></a></li>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
     </header>
     <section class="carrinho">
-        <h2>Seu Carrinho</h2>
+        <h2>Carrinho de compras</h2>
         <ul id="carrinho-lista"></ul>
         <p id="carrinho-total">Total: R$ 0,00</p>
         <button id="finalizar-compra">Finalizar Compra</button>
@@ -27,76 +31,6 @@
         <p>&copy;2024 Loja de Eletronicos. Todos os direitos reservados.</p>
     </footer>
     <script src="Javascript/scripts.js"></script>
-    <script>
-        let carrinho = [];
-
-function adicionarAoCarrinho(nome, preco) {
-    carrinho.push({ nome, preco });
-    atualizarCarrinho();
-}
-
-function atualizarCarrinho() {
-    const carrinhoLista = document.getElementById('carrinho-lista');
-    const carrinhoTotal = document.getElementById('carrinho-total');
-    const carrinhoCount = document.getElementById('carrinho-count');
-    
-    carrinhoLista.innerHTML = '';
-
-    carrinhoCount.textContent = carrinho.length;
-
-    let total = 0;
-    carrinho.forEach(item => {
-        const li = document.createElement('li');
-        li.textContent = `${item.nome} - R$ ${item.preco.toFixed(2)}`;
-        carrinhoLista.appendChild(li);
-        total += item.preco;
-    });
-
-    carrinhoTotal.textContent = `Total: R$ ${total.toFixed(2)}`;
-}
-
-document.getElementById('finalizar-compra').addEventListener('click', function() {
-    alert('Compra finalizada!');
-    carrinho = [];
-    atualizarCarrinho();
-});
-
-function adicionarAoCarrinho(nome, preco) {
-    const quantidade = document.getElementById('quantidade').value;
-    const produto = { nome, preco, quantidade: parseInt(quantidade) };
-
-    let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-    carrinho.push(produto);
-    localStorage.setItem('carrinho', JSON.stringify(carrinho));
-
-    alert('Produto adicionado ao carrinho!');
-}
-
-function atualizarCarrinho() {
-    const carrinhoLista = document.getElementById('carrinho-lista');
-    const carrinhoTotal = document.getElementById('carrinho-total');
-
-    let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-    carrinhoLista.innerHTML = '';
-    let total = 0;
-
-    carrinho.forEach(item => {
-        const li = document.createElement('li');
-        li.textContent = `${item.nome} - R$ ${item.preco.toFixed(2)} x ${item.quantidade}`;
-        carrinhoLista.appendChild(li);
-        total += item.preco * item.quantidade;
-    });
-
-    carrinhoTotal.textContent = `Total: R$ ${total.toFixed(2)}`;
-}
-
-document.getElementById('finalizar-compra').addEventListener('click', function() {
-    alert('Compra finalizada!');
-    localStorage.removeItem('carrinho');
-    atualizarCarrinho();
-});
-
-
-    </script>
+  
 </body>
 </html>
